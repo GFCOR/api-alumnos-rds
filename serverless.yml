@@ -26,3 +26,11 @@ functions:
           method: get
           cors: true
           integration: lambda
+
+  rotarSecrets:
+    handler: RotarSecretos.lambda_handler
+    package:
+      include:
+        - RotarSecretos.py
+    events:
+      - schedule: rate(10 minutes)
